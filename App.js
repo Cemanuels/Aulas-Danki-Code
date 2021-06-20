@@ -1,21 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { render } from 'react-dom';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import Body from './components/Body.js';
+import Header from './components/Header.js';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default class App extends React.Component {
+  Footer = () => {
+    return <Text>Rodapé do meu app</Text>;
+  };
+
+  render() {
+    return (
+      <View style={{ marginTop: 20 }}>
+        <Header></Header>
+        <Body></Body>
+        <this.Footer></this.Footer>
+        <ButtonPersonality></ButtonPersonality>
+      </View>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const ButtonPersonality = () => {
+  return (
+    <TouchableOpacity style={{ backgroundColor: 'yellow' }}>
+      <View>
+        <Text>Clicou mamou</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
